@@ -1,19 +1,21 @@
 export const path = {
     HOME: '/',
+    HOMEPAGE: '/home/',
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system'
 };
 
-export const languages = {
+export const LANGUAGES = {
     VI: 'vi',
     EN: 'en'
 };
- 
-export const manageActions = {
-    ADD: "ADD",
+
+export const CRUD_ACTIONS = {
+    CREATE: "CREATE",
     EDIT: "EDIT",
-    DELETE: "DELETE"
+    DELETE: "DELETE",
+    READ: "READ",
 };
 
 export const dateFormat = {

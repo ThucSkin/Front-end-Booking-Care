@@ -1,0 +1,320 @@
+//---options child ---*/
+$options-child-background-repeat  : no-repeat;
+$options-child-background-color   : #ffff;
+$options-child-background-position: 50% 50%;
+$options-child-background-size    : 32px;
+$options-child-border-radius      : 50%;
+$options-child-width              : 50px;
+$options-child-height             : 50px;
+$options-child-box-shadow         : #000000 0px 1px 2px 0px;
+$options-child-margin             : 0 auto;
+
+//----color----
+$color: #45c3d2;
+
+.home-header-container {
+
+    .home-header-content {
+        width           : 100%;
+        height          : 70px;
+        padding         : 10px;
+        display         : flex;
+        position        : sticky;
+        top             : 0;
+        background-color: #fff;
+        z-index         : 1000;
+
+        .left-content {
+            width      : 25%;
+            display    : flex;
+            align-items: center;
+            padding    : 0 60px;
+
+            .header-logo {
+                background : url('../../assets/logo.svg') center center no-repeat;
+                height     : 100%;
+                width      : 100%;
+                margin-left: 10px;
+                cursor     : pointer;
+            }
+
+            i {
+                font-size: 25px;
+                color    : gray;
+                cursor   : pointer;
+            }
+        }
+
+        .center-content {
+            width          : 50%;
+            display        : flex;
+            align-items    : center;
+            justify-content: space-between;
+            padding        : 0 10px;
+            color          : #333333;
+
+            .child-content {
+                font-size: 12px;
+                cursor   : pointer;
+
+                .sub-title {
+                    font-weight: 400;
+                    font-size  : 10px;
+                }
+            }
+        }
+
+        .right-content {
+            width          : 25%;
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+
+            .support {
+                margin        : 40px;
+                padding-top   : 15px;
+                display       : flex;
+                flex-direction: column;
+                align-items   : center;
+                font-size     : 12px;
+                cursor        : pointer;
+
+                p {
+                    color     : $color;
+                    margin-top: 3px;
+                }
+            }
+
+            .language-vi {
+                cursor : pointer;
+                opacity: 0.2;
+
+                &.active,
+                &:hover {
+                    opacity: 1;
+
+                    span {
+                        color: rgb(226, 147, 62);
+                    }
+                }
+
+            }
+
+            .language-en {
+                cursor : pointer;
+                margin : 0 10px;
+                opacity: .2;
+
+                &.active,
+                &:hover {
+                    opacity: 1;
+
+                    span {
+                        color: blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .home-header-banner {
+        background         : url('../../assets/imageHome.jpg');
+        height             : 500px;
+        background-repeat  : no-repeat;
+        background-size    : cover;
+        background-position: center;
+
+        display       : flex;
+        flex-direction: column;
+
+        .content-up {
+            height: 50%;
+
+            .title1 {
+                text-align   : center;
+                font-size    : 32px;
+                text-shadow  : 1px 1px 1px #333;
+                color        : white;
+                margin-top   : 30px;
+                margin-bottom: 5px;
+            }
+
+            .title2 {
+                text-align : center;
+                font-size  : 30px;
+                text-shadow: 1px 1px 1px #333;
+                color      : white;
+            }
+
+            .search {
+                width           : fit-content;
+                display         : flex;
+                justify-content : center;
+                margin          : 0 auto;
+                margin-top      : 15px;
+                align-items     : center;
+                padding         : 10px;
+                border-radius   : 25px;
+                background-color: #f7d800;
+
+                i {
+                    padding: 10px;
+                }
+
+                input {
+                    width     : 400px;
+                    height    : 30px;
+                    background: transparent;
+                    border    : none;
+                    outline   : none;
+                }
+            }
+        }
+
+        .content-down {
+            height          : 50%;
+            margin-top      : 100px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+
+            .options {
+                display        : flex;
+                justify-content: space-around;
+
+                .options-child {
+                    width        : 100px;
+                    text-align   : center;
+                    margin-bottom: 5px;
+                    cursor       : pointer;
+
+                    .icon-chuyen-khoa {
+                        background         : url('../../assets/iconKham_chuyen-khoa.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-kham-tu-xa {
+                        background         : url('../../assets/iconkham-tu-xa.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-kham-tong-quat {
+                        background         : url('../../assets/iconkham-tong-quan.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-xet-nghiem-y-hoc {
+                        background         : url('../../assets/iconxet-nghiem-y-hoc.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-suc-khoe-tinh-than {
+                        background         : url('../../assets/iconsuc-khoe-tinh-than.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-kham-nha-khoa {
+                        background         : url('../../assets/iconkham-nha-khoa.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-goi-phau-thuat {
+                        background         : url('../../assets/icongoi-phau-thuat.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-san-pham-y-te {
+                        background         : url('../../assets/iconsan-pham-y-te.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .icon-bai-test-suc-khoe {
+                        background         : url('../../assets/iconbai-test-suc-khoe2.png');
+                        background-repeat  : $options-child-background-repeat;
+                        background-color   : $options-child-background-color;
+                        background-position: $options-child-background-position;
+                        background-size    : $options-child-background-size;
+                        border-radius      : $options-child-border-radius;
+                        width              : $options-child-width;
+                        height             : $options-child-height;
+                        box-shadow         : $options-child-box-shadow;
+                        margin             : $options-child-margin;
+                    }
+
+                    .text-child {
+                        font-weight: 700;
+                    }
+
+                    .text-child:hover {
+                        font-weight: 700;
+                        color      : $color;
+                        cursor     : pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}

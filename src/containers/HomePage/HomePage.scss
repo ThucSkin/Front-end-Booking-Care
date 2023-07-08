@@ -1,0 +1,151 @@
+.slick-prev {
+    border          : 2px solid rgb(206, 203, 203) !important;
+    z-index         : 2 !important;
+    height          : 48px !important;
+    width           : 44px !important;
+    left            : -15px !important;
+    background-color: #b5b5b5 !important;
+    border-radius   : 0% !important;
+}
+
+.slick-prev:before {
+    font-family: "Font Awesome 5 Free" !important;
+    content    : "\f060" !important;
+}
+
+.slick-next {
+    border          : 2px solid rgb(206, 203, 203) !important;
+    z-index         : 2 !important;
+    height          : 48px !important;
+    width           : 44px !important;
+    right           : -10px !important;
+    background-color: #b5b5b5 !important;
+    border-radius   : 0% !important;
+}
+
+.slick-next:before {
+    font-family: "Font Awesome 5 Free" !important;
+    content    : "\f061" !important;
+}
+
+//---------------------------------------------
+//section common styles
+$color: #f5f5f5;
+
+.section-speciality {
+    margin-top: 20px;
+    background: $color;
+}
+
+.section-outstandingdoctor {
+    background: $color;
+}
+
+.section-about {
+    height: 467px !important;
+}
+
+
+//---------------------------------------------
+.section-share {
+    height: 330px;
+    border: 2px solid rgb(229, 226, 226);
+
+    .section-container {
+        margin: 0 50px;
+
+
+        .section-header {
+            height         : 60px;
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+            margin         : 10px;
+
+            span {
+                max-width: 90%;
+                font-size: 24px;
+            }
+
+            button {
+                max-width       : 10%;
+                font-size       : 11px;
+                font-weight     : 90;
+                background-color: #ebebeb;
+                border-radius   : 0;
+                text-transform  : uppercase;
+                color           : #282e41;
+
+                &:hover {
+                    background-color: #efd949;
+                    color           : #ffff;
+                }
+            }
+        }
+
+        .section-body {
+
+            .slider-customize {
+                display       : flex;
+                flex-direction: column;
+                padding       : 10px;
+
+                .bg-image {
+                    width              : 278px;
+                    height             : 180px;
+                    background-position: center center;
+                    background-repeat  : no-repeat;
+                    background-size    : cover;
+
+                    &.img-speciality {
+                        background-image: url('../../assets/Speciality/113208-y-hoc-co-truyen.jpg');
+                    }
+
+                    &.img-medical-facility {
+                        background-image: url('../../assets/Medical-Facility/083122lo-go-viet-duc.jpg');
+                    }
+
+                    &.img-handBook {
+                        background-image: url('../../assets/HandBook/235431-dia-chi-triet-long-ha-noi.jpg');
+                    }
+
+                }
+
+                &.slider-doctor {
+                    text-align: center;
+                    border    : 1px solid #d5d3d3;
+
+                    .img-outstandingdoctor {
+                        background-image: url('../../assets/OutStandingDoctor/095751-bs-tran-huu-loi-yd1.jpg');
+                        width           : 120px;
+                        height          : 120px;
+                        margin          : 0 auto;
+                        border-radius   : 50%;
+                    }
+                }
+
+                .text {
+                    font-size : 13px;
+                    margin-top: 5px;
+                }
+            }
+
+        }
+    }
+}
+
+.home-footer {
+    text-align : center;
+    padding-top: 10px;
+
+    p {
+        a {
+            color: rgb(45, 77, 159) !important;
+
+        }
+
+        a:hover {
+            color: blue !important;
+        }
+    }
+}
