@@ -85,6 +85,7 @@ export const createUser = (data) => {
             if (res && res.errCode === 0) {
                 dispatch(saveUserSuccess());
                 dispatch(fetchAllUserStart());
+                toast.success('Create is user successfully!');
             } else {
                 dispatch(saveUserFailed());
             }
