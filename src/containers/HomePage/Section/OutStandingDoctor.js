@@ -47,7 +47,6 @@ class OutStandingDoctor extends Component {
                                         <div className='slider-customize slider-doctor'>
                                             <div className="bg-image img-outstandingdoctor"
                                                 style={{ backgroundImage: `url(${imageBase64})` }}>
-
                                             </div>
                                             <div className='text'>
                                                 <div className="">{language === LANGUAGES.VI ? nameVi : nameEn}</div>
