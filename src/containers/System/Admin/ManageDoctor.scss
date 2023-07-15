@@ -21,6 +21,18 @@
         }
     }
 
+    .btn-edit {
+        margin          : 20px 0;
+        outline         : none;
+        background-color: #1d32d3;
+        width           : 100px;
+        color           : #fff;
+
+        &:hover {
+            background-color: #a19f9f;
+        }
+    }
+
     .more-info {
         display      : flex;
         gap          : 15px;
