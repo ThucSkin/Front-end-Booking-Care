@@ -21,6 +21,21 @@
             "speciality": "Chuyên khoa",
             "manage-handbook": "Quản lý Cẩm nang",
             "handbook": "Cẩm nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh"
         }
+    },
+    "manage-doctor": {
+        "save": "Lưu",
+        "edit": "Cập nhật",
+        "selected-doctor": "Chọn bác sĩ",
+        "info-doctor": "Thông tin bác sĩ"
+    },
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+        "save": "Lưu",
+        "selected-doctor": "Chọn bác sĩ",
+        "selected-date": "Chọn ngày"
     }
 }

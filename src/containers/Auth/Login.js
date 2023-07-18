@@ -31,13 +31,13 @@ class Login extends Component {
         });
     }
     handleLogin = async (e) => {
-        e.preventDefault();
+        //e.preventDefault()
         this.setState({ errMessage: '' });
         try {
             let data = await handleLoginApi(this.state.username, this.state.password);
             if (data && data.errCode !== 0) {
                 this.setState({
-                    errMessage: data.message
+                    errMessage: data.message,
                 });
             }
             if (data && data.errCode === 0) {
@@ -50,6 +50,12 @@ class Login extends Component {
                     errMessage: error.response.data.message
                 });
             }
+        }
+    }
+
+    handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            this.handleLogin();
         }
     }
 
@@ -67,7 +73,8 @@ class Login extends Component {
                                     <label>Email</label>
                                 </div>
                                 <div className="inputbox">
-                                    <input onChange={(e) => this.handleOnChangeInputPassword(e)} type="password" />
+                                    <input onChange={(e) => this.handleOnChangeInputPassword(e)}
+                                        onKeyDown={(e) => this.handleKeyDown(e)} type="password" />
                                     <label>Password</label>
                                 </div>
                                 <div className="forget">

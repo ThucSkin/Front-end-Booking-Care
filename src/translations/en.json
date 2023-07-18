@@ -21,6 +21,21 @@
             "speciality": "Specialties",
             "manage-handbook": "Manage Handbooks",
             "handbook": "Handbooks"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's Schedule"
         }
+    },
+    "manage-doctor": {
+        "save": "Save",
+        "edit": "Update",
+        "selected-doctor": "Choose a doctor",
+        "info-doctor": "Doctor's Information"
+    },
+    "manage-schedule": {
+        "title": "Manage Doctor's Examination plan",
+        "save": "Save",
+        "selected-doctor": "Choose a doctor",
+        "selected-date": "Choose date"
     }
 }

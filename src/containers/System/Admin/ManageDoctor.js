@@ -119,7 +119,7 @@ class ManageDoctor extends Component {
                         </div>
                         <div className="more-info">
                             <div className="content-left form-group">
-                                <label className='mb-2'>Chọn bác sĩ:</label>
+                                <label className='mb-2'><FormattedMessage id="manage-doctor.selected-doctor" />:</label>
                                 <Select
                                     value={this.state.selectedOption}
                                     onChange={this.handleChangeSelect}
@@ -127,7 +127,7 @@ class ManageDoctor extends Component {
                                 />
                             </div>
                             <div className="content-right">
-                                <label className='mb-2'>Thông tin:</label>
+                                <label className='mb-2'><FormattedMessage id="manage-doctor.info-doctor" />:</label>
                                 <textarea onChange={(e) => this.handleOnChangeDes(e)}
                                     value={this.state.description} name="" id="" rows={4} className='form-control'>
                                 </textarea>
@@ -141,7 +141,8 @@ class ManageDoctor extends Component {
                         <button onClick={() => this.handleSavecontentMarkDown()}
                             className={hasOldData === true ? "btn-edit" : "btn-save"}>
                             {hasOldData === true ?
-                                <span>Cập nhật</span> : <span>Lưu</span>}
+                                <span><FormattedMessage id="manage-doctor.edit" /></span>
+                                : <span><FormattedMessage id="manage-doctor.save" /></span>}
                         </button>
                     </div>
                 </Container>
