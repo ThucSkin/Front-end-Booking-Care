@@ -26,6 +26,7 @@
 
             &.active {
                 background-color: orange;
+                color           : #ffff;
             }
 
             &::before {
@@ -41,7 +42,7 @@
 
             &:hover::before {
                 transform   : scale(1.02);
-                border-color: red;
+                border-color: rgb(155, 152, 152);
             }
         }
     }
