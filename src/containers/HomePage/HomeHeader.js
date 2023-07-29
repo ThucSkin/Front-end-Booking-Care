@@ -30,21 +30,21 @@ class HomeHeader extends Component {
                                 <div className="sub-title"><FormattedMessage id="home-header.searchdoctor" /></div>
                             </div>
                             <div className="child-content">
-                                <div><b>Cơ sở y tế</b></div>
-                                <div className="sub-title">Chọn bện viện phòng khám</div>
+                                <div><b><FormattedMessage id="home-header.Health facilities" /></b></div>
+                                <div className="sub-title"><FormattedMessage id="home-header.Choose hospital clinic" /></div>
                             </div>
                             <div className="child-content">
-                                <div><b>Bác sĩ</b></div>
-                                <div className="sub-title">Chọn bác sĩ giỏi</div>
+                                <div><b><FormattedMessage id="home-header.Doctor" /></b></div>
+                                <div className="sub-title"><FormattedMessage id="home-header.choose a good doctor" /></div>
                             </div>
                             <div className="child-content">
-                                <div><b>Gói khám</b></div>
-                                <div className="sub-title">Khám sức khỏe tổng quát</div>
+                                <div><b><FormattedMessage id="home-header.Checkup package" /></b></div>
+                                <div className="sub-title"><FormattedMessage id="home-header.General health check Support" /></div>
                             </div>
                         </div>
                         <div className="right-content">
                             <div className="support">
-                                <i className='fas fa-question-circle'>Hỗ trợ</i>
+                                <i className='fas fa-question-circle'><FormattedMessage id="home-header.Support" /></i>
                                 <p>024-7301-2468</p>
                             </div>
                             <div className={language === LANGUAGES.VI ?

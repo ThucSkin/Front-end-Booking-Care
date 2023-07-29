@@ -2,7 +2,32 @@
     "home-header": {
         "speciality": "Medical speciality",
         "searchdoctor": "Find a doctor by speciality",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "Health facilities": "Health facilities",
+        "Choose hospital clinic": "Choose hospital clinic",
+        "Doctor": "Doctor",
+        "choose a good doctor": "Choose a good doctor",
+        "Checkup package": "Checkup package",
+        "General health check Support": "General health check Support",
+        "Support": "Support"
+    },
+    "detail-doctor": {
+        "calendar": "Calendar",
+        "text": "The doctor has no appointment at the moment!",
+        "address": "Address",
+        "price": "Price",
+        "detail": "Show details",
+        "hide": "Hide",
+        "infor-booking": "Information for scheduling a medical appointment",
+        "name": "Name",
+        "sdt": "PhoneNumber",
+        "address-user": "Address",
+        "reason": "Reason for examination",
+        "to whom": "To whom?",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "sex": "Sex",
+        "birthday": "Birthday"
     },
     "manage-user": {
         "edit": "Edit",

@@ -39,10 +39,27 @@
         }
     }
 
+    .schedule-doctor {
+        margin : 0 30px;
+        display: flex;
+        height : 240px;
+
+
+        .content-left {
+            width       : 50%;
+            border-right: 1px solid rgb(190, 190, 196);
+        }
+
+        .content-right {
+            width: 50%;
+        }
+    }
+
     .detail-info-doctor {
         border          : 1px solid rgb(190, 185, 185);
         padding         : 15px;
         background-color: #f9f9f9;
+        margin-top      : 10px;
 
         h4 {
             font-size: 17px;
@@ -61,4 +78,6 @@
             margin-top         : 20px;
         }
     }
+
+    .comment-doctor {}
 }

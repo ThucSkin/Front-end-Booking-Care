@@ -2,7 +2,32 @@
     "home-header": {
         "speciality": "Chuyên khoa",
         "searchdoctor": "Tìm bác sĩ theo chuyên khoa",
-        "welcome": "Xin chào"
+        "welcome": "Xin chào",
+        "Health facilities": "Cơ sở y tế",
+        "Choose hospital clinic": "Chọn bện viện phòng khám",
+        "Doctor": "Bác sĩ",
+        "choose a good doctor": "Chọn bác sĩ giỏi",
+        "Checkup package": "Gói khám",
+        "General health check Support": "Sức khỏe tổng quát",
+        "Support": "Hỗ trợ"
+    },
+    "detail-doctor": {
+        "calendar": "Lịch khám",
+        "text": "Hiện tại bác sĩ chưa có lịch khám bệnh!",
+        "address": "Địa chỉ khám",
+        "price": "Giá khám",
+        "detail": "Xem chi tiết",
+        "hide": "Ẩn bảng giá",
+        "infor-booking": "Thông tin đặt lịch khám bệnh",
+        "name": "Họ tên",
+        "sdt": "Số điện thoại",
+        "address-user": "Địa chỉ",
+        "reason": "Lý do khám",
+        "to whom": "Đặt cho ai?",
+        "confirm": "Xác nhận",
+        "cancel": "Hủy",
+        "sex": "Giới tính",
+        "birthday": "Ngày sinh"
     },
     "manage-user": {
         "edit": "Cập nhật",

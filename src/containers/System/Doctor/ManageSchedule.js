@@ -160,7 +160,7 @@ class ManageSchelude extends Component {
                                 <DatePicker onChange={this.handleOnChangeDatePicker}
                                     className='form-control'
                                     value={this.state.currentDate}
-                                    minDate={new Date()} />
+                                    minDate={new Date().setHours(0, 0, 0, 0)} />
                             </div>
                             <div className="col-md-12 pick-hour-container">
                                 {rangeTime && rangeTime.length > 0 &&
