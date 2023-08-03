@@ -27,7 +27,10 @@
         "confirm": "Confirm",
         "cancel": "Cancel",
         "sex": "Sex",
-        "birthday": "Birthday"
+        "birthday": "date"
+    },
+    "detail-specialty": {
+        "see-more": "See more"
     },
     "manage-user": {
         "edit": "Edit",

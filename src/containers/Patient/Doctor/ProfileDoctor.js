@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import HomeHeader from '../../HomePage/HomeHeader';
 import './ProfileDoctor.scss'
 import { getProfileDoctorById } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';
@@ -61,7 +60,7 @@ class ProfileDoctor extends Component {
 
     render() {
         let { dataProfile } = this.state;
-        let { language, isShowDescriptionDoctor, dataTime } = this.props;
+        let { language, isShowDescriptionDoctor, isShowAddressDoctor, dataTime } = this.props;
         let nameVi = '', nameEn = '';
         if (dataProfile && dataProfile.positionData) {
             nameVi = `${dataProfile.positionData.valueVi} | ${dataProfile.lastName} ${dataProfile.firstName}`
@@ -84,7 +83,8 @@ class ProfileDoctor extends Component {
                                     {dataProfile && dataProfile.MarkDown && dataProfile.MarkDown.description &&
                                         <span>
                                             {dataProfile.MarkDown.description}
-                                        </span>}
+                                        </span>
+                                    }
                                 </>
                                 :
                                 <>
@@ -92,20 +92,23 @@ class ProfileDoctor extends Component {
                                 </>
                             }
                         </div>
-                        <div className="address-price">
-                            <div className="address">
-                                <label><FormattedMessage id={"detail-doctor.address"} />: <span>&nbsp;</span></label>
-                                {dataProfile && dataProfile.Doctor_Infor
-                                    ? dataProfile.Doctor_Infor.addressClinic : ''}
+                        {isShowAddressDoctor === true ?
+                            <div className="address-price">
+                                <div className="address">
+                                    <label><FormattedMessage id={"detail-doctor.address"} />: <span>&nbsp;</span></label>
+                                    {dataProfile && dataProfile.Doctor_Infor
+                                        ? dataProfile.Doctor_Infor.addressClinic : ''}
+                                </div>
+                                <div className="price">
+                                    <label><FormattedMessage id={"detail-doctor.price"} />: <span>&nbsp;</span></label>
+                                    {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI
+                                        ? dataProfile.Doctor_Infor.priceTypeData.valueVi + 'VND' : ''}
+                                    {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN
+                                        ? dataProfile.Doctor_Infor.priceTypeData.valueEn + '$' : ''}
+                                </div>
                             </div>
-                            <div className="price">
-                                <label><FormattedMessage id={"detail-doctor.price"} />: <span>&nbsp;</span></label>
-                                {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI
-                                    ? dataProfile.Doctor_Infor.priceTypeData.valueVi + 'VND' : ''}
-                                {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN
-                                    ? dataProfile.Doctor_Infor.priceTypeData.valueEn + '$' : ''}
-                            </div>
-                        </div>
+                            : ''
+                        }
                     </div>
 
                 </div>

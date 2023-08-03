@@ -27,7 +27,10 @@
         "confirm": "Xác nhận",
         "cancel": "Hủy",
         "sex": "Giới tính",
-        "birthday": "Ngày sinh"
+        "birthday": "Ngày"
+    },
+    "detail-specialty": {
+        "see-more": "Xem thêm"
     },
     "manage-user": {
         "edit": "Cập nhật",
