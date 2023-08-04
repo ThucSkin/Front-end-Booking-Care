@@ -133,7 +133,6 @@ class ManageSchelude extends Component {
     }
 
     render() {
-        console.log(this.state)
         let { rangeTime } = this.state;
         let { language } = this.props;
 

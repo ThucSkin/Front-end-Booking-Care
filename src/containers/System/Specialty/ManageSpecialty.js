@@ -7,6 +7,9 @@ import MdEditor from 'react-markdown-editor-lite';
 import commonUtils from '../../../utils/CommonUtils';
 import { createNewSpecialty } from '../../../services/userService';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Lightbox from 'react-18-image-lightbox'
+import { Container } from 'reactstrap';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -17,7 +20,10 @@ class ManageSpecialty extends Component {
             name: '',
             imageBase64: '',
             descriptionHTML: '',
-            descriptionMarkdown: ''
+            descriptionMarkdown: '',
+
+            previewImgUrl: '',
+            isOpen: false,
         }
     }
 
@@ -49,8 +55,10 @@ class ManageSpecialty extends Component {
         let file = data[0];
         if (file) {
             let base64 = await commonUtils.getBase64(file);
+            let objectUrl = URL.createObjectURL(file);
             this.setState({
-                imageBase64: base64
+                imageBase64: base64,
+                previewImgUrl: objectUrl,
             })
         }
     }
@@ -64,26 +72,36 @@ class ManageSpecialty extends Component {
         }
     }
 
+    openPreviewImage = () => {
+        if (!this.state.previewImgUrl) return
+        this.setState({
+            isOpen: true
+        });
+    }
+
     render() {
-        console.log('check state:', this.state);
 
         return (
-            <>
+            <Container>
                 <div className="manage-specialty-container">
                     <div className="title">Quan ly chuyen khoa</div>
                     <div className="add-new-specialty row">
-                        <div className="col-md-6 form-group">
+                        <div className="col-md-4 form-group">
                             <label htmlFor="">Ten chuyen khoa</label>
                             <input type="text" className='form-control'
                                 value={this.state.name}
                                 onChange={(e) => this.handleOnChangeInput(e, 'name')} />
                         </div>
-                        <div className="col-md-6 form-group">
-                            <input id='previewImg' type="file" hidden
-                                onChange={(e) => this.handleOnChangeImage(e)} />
-                            <label className='lable-upload' htmlFor="previewImg">Tải ảnh <i className='fas fa-upload'></i></label>
+                        <div class="col-md-4">
+                            <div className="previewImgContent">
+                                <input onChange={(e) => this.handleOnChangeImage(e)} id='previewImg' type="file" hidden />
+                                <label className='lable-upload' htmlFor="previewImg">Tải ảnh <i className='fas fa-upload'></i></label>
+                                <div className="preview-img" style={{ backgroundImage: `url(${this.state.previewImgUrl})` }}
+                                    onClick={() => this.openPreviewImage()}>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-12">
+                        <div className="col-12 mt-4">
                             <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)}
                                 onChange={this.handleEditorChange}
                                 value={this.state.descriptionMarkdown}
@@ -95,8 +113,14 @@ class ManageSpecialty extends Component {
                             </button>
                         </div>
                     </div>
+                    {this.state.isOpen === true &&
+                        <Lightbox
+                            mainSrc={this.state.previewImgUrl}
+                            onCloseRequest={() => this.setState({ isOpen: false })}
+                        />
+                    }
                 </div>
-            </>
+            </Container>
         );
     }
 }

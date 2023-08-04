@@ -1,21 +1,25 @@
 .detail-specialty-container {
+    background-color: #eee;
+
     .description-specialty {
-        border: 1px solid red;
-        height: 200px;
+        background-color: #fff;
+        padding         : 30px 30px 10px 70px;
+        border-top      : 1px solid #d5cece;
     }
 
     .each-doctor {
-        display      : flex;
-        width        : 100%;
-        min-height   : 300px;
-        border-radius: 8px;
-        box-shadow   : #a0a1a3 0px 1px 6px 0px;
-        font-size    : 14px;
-        line-height  : 21px;
-        margin       : 0px 0px 10px;
+        display         : flex;
+        width           : 100%;
+        min-height      : 300px;
+        border-radius   : 8px;
+        box-shadow      : #a0a1a3 0px 1px 6px 0px;
+        font-size       : 14px;
+        line-height     : 21px;
+        margin          : 0px 0px 10px;
+        background-color: #fff;
 
         .dt-content-left {
-            width       : 50%;
+            width       : 40%;
             padding     : 15px;
             border-right: 1px solid #ddd;
 
@@ -35,7 +39,7 @@
         }
 
         .dt-content-right {
-            width  : 50%;
+            width  : 60%;
             padding: 15px;
 
             .doctor-schedule {}
@@ -49,6 +53,17 @@
                     padding-left: 0 !important;
                 }
             }
+        }
+    }
+
+    .search-sp-doctor {
+        padding: 10px 0;
+
+        select {
+            min-height   : 30px;
+            padding      : 5px;
+            border-radius: 5px;
+            border       : #6a6f79 .5px solid;
         }
     }
 }

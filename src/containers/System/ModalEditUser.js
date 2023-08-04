@@ -91,7 +91,7 @@ class ModalEditUser extends Component {
     }
 
     render() {
-        console.log('checkkkkkkk', this.props);
+
         return (
             < Modal isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}

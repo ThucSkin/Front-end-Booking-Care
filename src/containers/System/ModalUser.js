@@ -92,7 +92,6 @@ class ModalUser extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             < Modal isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}

@@ -26,6 +26,12 @@ class DoctorSchedule extends Component {
         this.setState({
             allDays: allDays,
         });
+        if (this.props.doctorIdFromParent) {
+            let res = await getScheduleByDate(this.props.doctorIdFromParent, allDays[0].value);
+            this.setState({
+                allAvalableTimes: res.data ? res.data : []
+            });
+        }
     }
 
     getArrDays = (language) => {
@@ -91,7 +97,6 @@ class DoctorSchedule extends Component {
             isOpenModalBooking: true,
             dataScheduleTimeModal: time
         });
-        console.log('check click time', time);
     }
 
     closeBooking = () => {

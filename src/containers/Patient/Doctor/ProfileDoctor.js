@@ -33,9 +33,12 @@ class ProfileDoctor extends Component {
         return result;
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    async componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.doctorId !== prevProps.doctorId) {
-            this.getInforDoctor(this.props.doctorId);
+            let data = await this.getInforDoctor(this.props.doctorId);
+            this.setState({
+                dataProfile: data,
+            });
         }
     }
 
@@ -66,7 +69,7 @@ class ProfileDoctor extends Component {
             nameVi = `${dataProfile.positionData.valueVi} | ${dataProfile.lastName} ${dataProfile.firstName}`
             nameEn = `${dataProfile.positionData.valueEn} | ${dataProfile.firstName} ${dataProfile.lastName}`
         }
-        console.log('check data time', this.props.dataTime)
+
         return (
             <>
                 <div className="intro-doctor">

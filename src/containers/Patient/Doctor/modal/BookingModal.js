@@ -149,8 +149,7 @@ class BookingModal extends Component {
     render() {
         let { isOpenModal, closeBooking, dataTime } = this.props;
         let doctorId = dataTime && !_.isEmpty(dataTime) ? dataTime.doctorId : '';
-        console.log('check state', this.state);
-        console.log('check props', this.props);
+
         return (
             <>
                 <Modal
@@ -199,6 +198,7 @@ class BookingModal extends Component {
                                         value={this.state.selectedGender}
                                         onChange={this.handleOnChangeSelect}
                                         options={this.state.genders}
+                                        placeholder="Chọn giới tính"
                                     />
                                 </div>
                                 <div className="col-md-6 form-group">

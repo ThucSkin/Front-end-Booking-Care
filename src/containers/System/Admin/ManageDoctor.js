@@ -47,6 +47,22 @@ class ManageDoctor extends Component {
         }
     }
 
+    initState() {
+        this.setState({
+            selectedOption: '',
+            contentHTML: '',
+            contentMarkDown: '',
+            description: '',
+            addressClinic: '',
+            nameClinic: '',
+            note: '',
+            selectedPrice: '',
+            selectedPayment: '',
+            selectedProvince: '',
+            selectedSpecialty: '',
+        })
+    }
+
     componentDidMount() {
         this.props.fetchAllDoctor();
         this.props.getAllRequiredDoctorInfor();
@@ -174,6 +190,7 @@ class ManageDoctor extends Component {
             clinicId: this.state.selectedClinic && this.state.selectedClinic.value ? this.state.selectedClinic.value : '',
             specialtyId: this.state.selectedSpecialty.value,
         });
+        this.initState();
     }
 
     handleChangeSelect = async (selectedOption) => {
@@ -223,18 +240,10 @@ class ManageDoctor extends Component {
                 selectedPrice: selectedPrice,
                 selectedPayment: selectedPayment,
                 selectedProvince: selectedProvince,
-                //
                 selectedSpecialty: selectedSpecialty,
             })
         } else {
-            this.setState({
-                contentHTML: '',
-                contentMarkDown: '',
-                description: '',
-                addressClinic: '',
-                nameClinic: '',
-                note: '',
-            })
+            this.initState();
         }
     }
 
@@ -255,7 +264,6 @@ class ManageDoctor extends Component {
 
     render() {
         let { hasOldData } = this.state;
-        console.log('check state:', this.state);
         return (
             <>
                 <Container>
