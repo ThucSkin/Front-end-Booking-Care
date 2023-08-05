@@ -119,7 +119,11 @@ class DetailSpecialty extends Component {
                 <div className="description-specialty">
                     {
                         dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty)
-                        && <div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }}></div>
+                        &&
+                        <>
+                            <div className="specialty-name">{dataDetailSpecialty.name}</div>
+                            <div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }}></div>
+                        </>
                     }
                 </div>
                 <Container>

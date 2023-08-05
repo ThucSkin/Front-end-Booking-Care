@@ -11,6 +11,23 @@
             margin-bottom: 10px;
             font-weight  : 700;
         }
+
+        .flex {
+            display        : flex;
+            justify-content: space-between;
+
+            .see-more {
+                font-size       : 12px;
+                background-color: #caccd1;
+                color           : #2a2929;
+                padding         : 5px 10px;
+                cursor          : pointer;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
     }
 
     .each-doctor {
@@ -21,7 +38,7 @@
         box-shadow      : #a0a1a3 0px 1px 6px 0px;
         font-size       : 14px;
         line-height     : 21px;
-        margin          : 0px 0px 10px;
+        margin          : 20px 0;
         background-color: #fff;
 
         .dt-content-left {
@@ -71,14 +88,5 @@
             border-radius: 5px;
             border       : #6a6f79 .5px solid;
         }
-    }
-
-    h4 {
-        color: #45c3d2;
-    }
-
-    img {
-        margin    : 10px 0 0 25%;
-        max-height: 300px;
     }
 }

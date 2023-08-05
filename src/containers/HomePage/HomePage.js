@@ -11,6 +11,7 @@ import HomeFooter from './Section/HomeFooter';
 import './HomePage.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Overlay } from 'react-bootstrap';
 
 class HomePage extends Component {
 

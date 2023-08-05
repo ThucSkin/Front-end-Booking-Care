@@ -100,15 +100,7 @@ $color: #f5f5f5;
                     height             : 180px;
                     background-position: center center;
                     background-repeat  : no-repeat;
-                    background-size    : cover;
-
-                    &.img-speciality {
-                        //background-image: url('../../assets/Speciality/113208-y-hoc-co-truyen.jpg');
-                    }
-
-                    &.img-medical-facility {
-                        background-image: url('../../assets/Medical-Facility/083122lo-go-viet-duc.jpg');
-                    }
+                    background-size    : 100% auto;
 
                     &.img-handBook {
                         background-image: url('../../assets/HandBook/235431-dia-chi-triet-long-ha-noi.jpg');
@@ -132,6 +124,14 @@ $color: #f5f5f5;
                 .text {
                     font-size : 13px;
                     margin-top: 5px;
+
+                    &:hover {
+                        color: #2d7fa2;
+                    }
+                }
+
+                .text-center {
+                    text-align: center;
                 }
             }
 
