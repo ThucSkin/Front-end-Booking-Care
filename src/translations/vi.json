@@ -27,7 +27,9 @@
         "confirm": "Xác nhận",
         "cancel": "Hủy",
         "sex": "Giới tính",
-        "birthday": "Ngày"
+        "birthday": "Ngày",
+        "firstName": "Tên",
+        "lastName": "Họ"
     },
     "detail-specialty": {
         "see-more": "Xem thêm"
@@ -51,7 +53,8 @@
             "handbook": "Cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý kế hoạch khám bệnh"
+            "manage-schedule": "Quản lý kế hoạch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh"
         }
     },
     "manage-doctor": {

@@ -22,7 +22,7 @@ class BookingModal extends Component {
             email: '',
             address: '',
             reason: '',
-            birthday: '',
+            birthday: new Date(),
             doctorId: '',
             genders: '',
             selectedGender: '',
@@ -121,7 +121,6 @@ class BookingModal extends Component {
     }
 
     handleConfirmBooking = async () => {
-        let date = new Date(this.state.birthday).getTime();
         let timeString = this.buildTimeBooking(this.props.dataTime);
         let doctorName = this.buildDoctorName(this.props.dataTime);
         let res = await postPatientBooking({
@@ -130,7 +129,7 @@ class BookingModal extends Component {
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
-            date: date,
+            date: this.props.dataTime.date,
             doctorId: this.state.doctorId,
             selectedGender: this.state.selectedGender.value,
             timeType: this.state.timeType,
@@ -201,15 +200,15 @@ class BookingModal extends Component {
                                         placeholder="Chọn giới tính"
                                     />
                                 </div>
-                                <div className="col-md-6 form-group">
+                                {/* <div className="col-md-6 form-group">
                                     <label><FormattedMessage id={"detail-doctor.birthday"} /></label>
                                     <DatePicker
                                         onChange={this.handleOnChangeDatePicker}
                                         className="form-control"
                                         value={this.state.birthday}
                                     />
-                                </div>
-                                <div className="col-md-6 form-group">
+                                </div> */}
+                                <div className="col-md-12 form-group">
                                     <label><FormattedMessage id={"detail-doctor.address-user"} /></label>
                                     <input type="text" name="" id="" className='form-control'
                                         value={this.state.address}
