@@ -283,6 +283,8 @@ class ManageDoctor extends Component {
 
     render() {
         let { hasOldData } = this.state;
+        console.log('check props', this.props);
+
         return (
             <>
                 <Container>

@@ -78,13 +78,13 @@ class TableManageUser extends Component {
                                             <tr>
                                                 <td>{item.id}</td>
                                                 <td>{item.email}</td>
-                                                <td><span>{item.firstName}</span>&nbsp;{item.lastName}</td>
+                                                <td><span>{item.lastName}</span>&nbsp;{item.firstName}</td>
                                                 <td>{item.gender === 'F' ? 'nữ' : item.gender === 'M' ? 'nam' : 'khác'}</td>
                                                 <td>{item.phoneNumber}</td>
                                                 <td>{item.roleId === 'role_admin' ? 'admin' : item.roleId === 'role_doctor' ? 'bác sĩ' : 'bệnh nhân'}</td>
                                                 <td>{item.positionId === 'P0' ? 'bác sĩ' : item.positionId === 'P1' ? 'thạc sĩ'
                                                     : item.positionId === 'P2' ? 'tiến sĩ'
-                                                        : item.positionId === 'P3' ? 'phó giáo sư' : 'giáo sư'}</td>
+                                                        : item.positionId === 'P3' ? 'phó giáo sư' : item.positionId === 'P4' ? 'giáo sư' : 'bệnh nhân'}</td>
                                                 <td>{item.address}</td>
                                                 <td>
                                                     <button onClick={() => this.handleEditUser(item)} className='mb-1'><i className='fas fa-pencil-alt'></i></button>
@@ -98,7 +98,7 @@ class TableManageUser extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+
                 </Container>
             </>
         );

@@ -9,6 +9,7 @@ import { LANGUAGES } from '../../../utils';
 import ModalRemedy from './ModalRemedy';
 import { toast } from 'react-toastify';
 import LoadingOverlay from 'react-loading-overlay';
+import { FormattedMessage } from 'react-intl';
 
 class ManagePatient extends Component {
     constructor(props) {
@@ -141,15 +142,16 @@ class ManagePatient extends Component {
                 >
                     <div className="manage-patient-container">
                         <div className="title">
-                            Quan ly benh nhan kham benh
+                            <FormattedMessage id={"manage-patient.title"} />
                         </div>
                         <div className="m-p-body row mt-5">
                             <div className="form-group col-md-4">
-                                <label>Chon ngay kham:</label>
+                                <label><FormattedMessage id={"manage-patient.chooseDay"} />:</label>
                                 <DatePicker
                                     onChange={this.handleOnChangeDatePicker}
                                     className="form-control mt-2"
                                     value={this.state.currentDate}
+                                    minDate={new Date().setHours(0, 0, 0, 0)}
                                 />
                             </div>
                         </div>
@@ -158,12 +160,12 @@ class ManagePatient extends Component {
                                 <thead>
                                     <tr>
                                         <th scope="col">STT</th>
-                                        <th scope="col">Thoi gian</th>
-                                        <th scope="col">Ho ten</th>
-                                        <th scope="col">SDT</th>
-                                        <th scope="col">Dia chi</th>
-                                        <th scope="col">Gioi tinh</th>
-                                        <th scope="col">actions</th>
+                                        <th scope="col"><FormattedMessage id={"manage-patient.time"} /></th>
+                                        <th scope="col"><FormattedMessage id={"manage-patient.name"} /></th>
+                                        <th scope="col"><FormattedMessage id={"manage-patient.phone"} /></th>
+                                        <th scope="col"><FormattedMessage id={"manage-patient.address"} /></th>
+                                        <th scope="col"><FormattedMessage id={"manage-patient.sex"} /></th>
+                                        <th colSpan={2}></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -184,7 +186,9 @@ class ManagePatient extends Component {
                                                     <td>{item.patientData.address}</td>
                                                     <td>{sex}</td>
                                                     <td className='actions'>
-                                                        <button className='btn-confirm' onClick={() => this.handBtnConfirm(item)}>Xac nhan</button>
+                                                        <button className='btn-confirm' onClick={() => this.handBtnConfirm(item)}>
+                                                            <FormattedMessage id={"detail-doctor.confirm"} />
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             )

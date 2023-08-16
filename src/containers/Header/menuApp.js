@@ -3,9 +3,6 @@ export const adminMenu = [
         name: 'menu.admin.manage-user',
         menus: [
             {
-                name: 'menu.admin.crud', link: '/system/user-manage',
-            },
-            {
                 name: 'menu.admin.crud-redux', link: '/system/user-redux',
             },
             {
@@ -15,9 +12,6 @@ export const adminMenu = [
                 //     { name: 'menu.system.system-administrator.user-redux', link: '/system/user-redux' },
                 // ]
             },
-            // {
-            //     name: 'menu.admin.manage-admin', link: '/system/user-admin',
-            // },
             { //Quản lý kế hoạch khám bệnh bác sĩ
                 name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule',
             },
@@ -27,7 +21,13 @@ export const adminMenu = [
         name: 'menu.admin.clinic',
         menus: [
             {
+                name: 'menu.admin.list-clinic', link: '/system/list-clinic',
+            },
+            {
                 name: 'menu.admin.manage-clinic', link: '/system/manage-clinic',
+            },
+            {
+                name: 'menu.admin.edit-clinic', link: '/system/edit-clinic',
             },
         ]
     },

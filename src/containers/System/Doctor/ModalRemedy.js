@@ -65,24 +65,24 @@ class ModalRemery extends Component {
                     size='md'
                     centered
                 >
-                    <div className="booking-modal-content">
+                    <div className="booking-modal-content remedy">
                         <div className="booking-modal-header">
-                            <span className='left'>Gui hoa don kham benh</span>
+                            <span className='left'><FormattedMessage id={"manage-patient.bill"} /></span>
                             <span className='right'>
                                 <i onClick={clossRemedyModal} className='fas fa-times'></i>
                             </span>
                         </div>
                         <div className="booking-modal-body">
                             <div className="row">
-                                <div className="col-md-6 form-group">
-                                    <label>Email benh nhan</label>
+                                <div className="col-md-12 form-group">
+                                    <label><FormattedMessage id={"manage-patient.email"} /></label>
                                     <input type="email" name="" id="" className='form-control'
                                         value={dataModal.email}
                                         onChange={(e) => this.handleOnChangeEmail(e)} />
                                 </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Chon file don thuoc</label>
-                                    <input type="file" name="" id="" className='form-control-file'
+                                <div className="col-md-12 form-group choose-file">
+                                    <label htmlFor='choose'><FormattedMessage id={"manage-patient.chooseFile"} /></label>
+                                    <input hidden type="file" name="" id="choose" className='form-control-file'
                                         onChange={(e) => this.handleOnChangeImage(e)} />
                                 </div>
                             </div>

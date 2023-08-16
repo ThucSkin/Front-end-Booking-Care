@@ -104,6 +104,16 @@ const postSendRemedy = (data) => {
     return axios.post(`api/send-remedy`, data);
 }
 
+const deleteClinicById = (clinicId) => {
+    return axios.delete(`/api/delete-clinic-by-id?id=${clinicId}`);
+}
+
+const updateClinicByIdService = (clinicId, updatedData) => {
+    return axios.put(`/api/update-clinic-by-id?id=${clinicId}`, updatedData);
+};
+
+
+
 export {
     handleLoginApi,
     getAllUsers,
@@ -129,6 +139,8 @@ export {
     getDetailClinicById,
     getAllDoctorInfor,
     getAllPatient,
-    postSendRemedy
+    postSendRemedy,
+    deleteClinicById,
+    updateClinicByIdService
 }
 

@@ -44,9 +44,11 @@
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
             "crud": "CRUD user",
-            "crud-redux": "CRUD redux",
-            "manage-clinic": "Quản lý phòng khám",
+            "crud-redux": "Quản lý tài khoản",
+            "manage-clinic": "Thêm cơ sở y tế",
             "clinic": "Phòng khám",
+            "list-clinic": "Danh sách phòng khám",
+            "edit-clinic": "Chỉnh sửa phòng khám",
             "manage-speciality": "Quản lý chuyên khoa",
             "speciality": "Chuyên khoa",
             "manage-handbook": "Quản lý Cẩm nang",
@@ -68,5 +70,17 @@
         "save": "Lưu",
         "selected-doctor": "Chọn bác sĩ",
         "selected-date": "Chọn ngày"
+    },
+    "manage-patient": {
+        "title": "Quản lý bệnh nhân khám bệnh",
+        "bill": "hóa đơn khám bệnh",
+        "email": "Email bệnh nhân:",
+        "chooseFile": "Chọn file đơn thuốc",
+        "time": "Thời gian",
+        "name": "Họ tên",
+        "phone": "Số điện thoại",
+        "address": "Địa chỉ",
+        "sex": "Giới tính",
+        "chooseDay": "Chọn ngày khám"
     }
 }

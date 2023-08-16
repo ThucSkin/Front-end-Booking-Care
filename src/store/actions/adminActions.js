@@ -1,5 +1,10 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService, saveDetailDoctorService, getAllDoctorsService, getTopDoctoreService, editUserService, deleteUserService, createNewUserService, getAllUsers, getAllSpecialty, getAllClinic } from '../../services/userService';
+import {
+    getAllCodeService, saveDetailDoctorService, getAllDoctorsService,
+    getTopDoctoreService, editUserService, deleteUserService,
+    createNewUserService, getAllUsers, getAllSpecialty, getAllClinic,
+    getDetailClinicById
+} from '../../services/userService';
 import { toast } from 'react-toastify';
 
 // export const fetchGenderStart = () => ({
@@ -317,6 +322,29 @@ export const fetchRequireDoctorInforSuccess = (allRequiredData) => ({
     type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESS,
     data: allRequiredData
 });
+
+/////////   
+export const fetchClinicById = (clinicId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getDetailClinicById(clinicId);
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_CLINIC_BY_ID_SUCCESS,
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_CLINIC_BY_ID_FAILED
+                })
+            }
+        } catch (error) {
+            console.error(error)
+            dispatch({
+                type: actionTypes.FETCH_CLINIC_BY_ID_FAILED
+            })
+        }
+    }
+}
 
 
 

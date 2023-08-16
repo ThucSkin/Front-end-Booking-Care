@@ -42,9 +42,11 @@
             "manage-doctor": "Manage doctors",
             "manage-admin": "Manage admins",
             "crud": "CRUD user",
-            "crud-redux": "CRUD redux",
+            "crud-redux": "Manage accounts",
             "manage-clinic": "Manage clinics",
             "clinic": "Clinics",
+            "list-clinic": "List Clinics",
+            "edit-clinic": "Edit Clinics",
             "manage-speciality": "Manage Specialties",
             "speciality": "Specialties",
             "manage-handbook": "Manage Handbooks",
@@ -66,5 +68,17 @@
         "save": "Save",
         "selected-doctor": "Choose a doctor",
         "selected-date": "Choose date"
+    },
+    "manage-patient": {
+        "title": "Management of medical examination patients",
+        "bill": "medical bills",
+        "email": "Patient email:",
+        "chooseFile": "Choose file",
+        "time": "Time",
+        "name": "Name",
+        "phone": "Phone number",
+        "address": "Address",
+        "sex": "Sex",
+        "chooseDay": "Choose Day"
     }
 }

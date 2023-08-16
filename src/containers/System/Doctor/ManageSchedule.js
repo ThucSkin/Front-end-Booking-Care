@@ -17,7 +17,7 @@ class ManageSchelude extends Component {
         this.state = {
             listDoctors: [],
             selectedOption: {},
-            currentDate: '',
+            currentDate: new Date(),
             rangeTime: [],
         }
     }
@@ -139,10 +139,10 @@ class ManageSchelude extends Component {
         return (
             <>
                 <div className="manage-schedule-container">
-                    <div className="m-s-title">
+                    <div className="title">
                         <FormattedMessage id="manage-schedule.title" />
                     </div>
-                    <div className="container">
+                    <div className="container mt-5">
                         <div className="row">
                             <div className="col-6 form-group">
                                 <label className='mb-2'><FormattedMessage id="manage-schedule.selected-doctor" />:</label>
