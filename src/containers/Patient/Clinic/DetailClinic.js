@@ -10,6 +10,7 @@ import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import { getProfileDoctorById, getDetailClinicById } from '../../../services/userService'
 import _ from 'lodash';
+import HeaderClinic from './HeaderClinic';
 
 class DetailClinic extends Component {
     constructor(props) {
@@ -18,6 +19,12 @@ class DetailClinic extends Component {
             arrDoctorId: [],
             dataDetailClinic: {},
             arrDoctors: []
+        }
+    }
+
+    getIdFromParent() {
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            return this.props.match.params.id;
         }
     }
 
@@ -68,12 +75,12 @@ class DetailClinic extends Component {
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
+                <HeaderClinic getIdFromParent={this.getIdFromParent()} />
                 <div className="description-specialty">
                     {
                         dataDetailClinic && !_.isEmpty(dataDetailClinic)
                         &&
                         <>
-                            <div className="specialty-name">{dataDetailClinic.name}</div>
                             <Container>
                                 {arrDoctorId && arrDoctorId.length > 0 &&
                                     <>

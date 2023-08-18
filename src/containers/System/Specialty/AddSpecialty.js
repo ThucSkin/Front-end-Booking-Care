@@ -13,7 +13,7 @@ import { Container } from 'reactstrap';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
-class ManageSpecialty extends Component {
+class AddSpecialty extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -84,7 +84,7 @@ class ManageSpecialty extends Component {
         return (
             <Container>
                 <div className="manage-specialty-container">
-                    <div className="title">Quan ly chuyen khoa</div>
+                    <div className="title mb-5">Thêm chuyên khoa</div>
                     <div className="add-new-specialty row">
                         <div className="col-md-4 form-group">
                             <label htmlFor="">Ten chuyen khoa</label>
@@ -138,4 +138,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(AddSpecialty);

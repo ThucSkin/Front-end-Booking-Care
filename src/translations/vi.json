@@ -49,7 +49,9 @@
             "clinic": "Phòng khám",
             "list-clinic": "Danh sách phòng khám",
             "edit-clinic": "Chỉnh sửa phòng khám",
-            "manage-speciality": "Quản lý chuyên khoa",
+            "manage-speciality": "Thêm chuyên khoa",
+            "edit-speciality": "Sửa chuyên khoa",
+            "list-speciality": "Danh sách chuyên khoa",
             "speciality": "Chuyên khoa",
             "manage-handbook": "Quản lý Cẩm nang",
             "handbook": "Cẩm nang"

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as actions from '../../../store/actions';
-import './ManageClinic.scss';
+import './ManageSpecialty.scss';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import commonUtils from '../../../utils/CommonUtils';
-import { getAllClinic, updateClinicByIdService } from '../../../services/userService';
+import { editSpecialtyById, getAllClinic, getAllSpecialty, updateClinicByIdService } from '../../../services/userService';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Lightbox from 'react-18-image-lightbox'
@@ -14,30 +14,29 @@ import Select from 'react-select';
 
 const mdParser = new MarkdownIt(/* Thêm các tùy chọn của Markdown-it nếu cần */);
 
-class EditClinic extends Component {
+class EditSpecialty extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            address: '',
             imageBase64: '',
             descriptionHTML: '',
             descriptionMarkdown: '',
 
-            listClinic: [],
-            selectedClinic: '',
-            clinicId: '',
+            listSpecialty: [],
+            selectedSpecialty: '',
+            specialtyId: '',
 
             previewImgUrl: '',
             isOpen: false,
 
-            dataClinics: [],
+            dataSpecialties: [],
         }
     }
 
     componentDidMount() {
         this.props.getAllRequiredDoctorInfor()
-        this.fetchClinics();
+        this.fetchSpecialties();
     }
 
     buildDataInputSelect = (data) => {
@@ -62,19 +61,19 @@ class EditClinic extends Component {
     }
 
     getDataRequireSelection() {
-        let { resClinic } = this.props.allRequireDoctorInfor;
-        let dataSelectClinic = this.buildDataInputSelect(resClinic);
+        let { resSpecialty } = this.props.allRequireDoctorInfor;
+        let dataSelectSpecialty = this.buildDataInputSelect(resSpecialty);
 
         this.setState({
-            listClinic: dataSelectClinic
+            listSpecialty: dataSelectSpecialty
         });
     }
 
-    fetchClinics = async () => {
-        let res = await getAllClinic();
+    fetchSpecialties = async () => {
+        let res = await getAllSpecialty();
         if (res.errCode === 0 && res.data) {
             this.setState({
-                dataClinics: res.data,
+                dataSpecialties: res.data,
             });
         }
     }
@@ -115,7 +114,7 @@ class EditClinic extends Component {
         });
     }
 
-    hanldeOnChangeSelectdClinic = async (selectedOption, name) => {
+    hanldeOnChangeSelectdSpecialty = async (selectedOption, name) => {
         // Lấy tên của trạng thái từ tham số 'name'
         let stateName = name.name;
 
@@ -125,30 +124,26 @@ class EditClinic extends Component {
         // Cập nhật trạng thái mới với tùy chọn được chọn
         stateCopy[stateName] = selectedOption;
 
-        // Tìm thông tin phòng khám dựa trên ID của tùy chọn
-        const selectedClinic = this.state.dataClinics.find(
-            clinic => clinic.id === selectedOption.value);
+        // Tìm thông tin chuyên khoa dựa trên ID của tùy chọn
+        const selectedSpecialty = this.state.dataSpecialties.find(
+            item => item.id === selectedOption.value);
 
-        if (selectedClinic) {
-            stateCopy.clinicId = selectedClinic.id;
-            stateCopy.name = selectedClinic.name;
-            stateCopy.address = selectedClinic.address;
-            stateCopy.descriptionHTML = selectedClinic.descriptionHTML;
-            stateCopy.descriptionMarkdown = selectedClinic.descriptionMarkdown;
-            stateCopy.imageBase64 = selectedClinic.image;
+        if (selectedSpecialty) {
+            stateCopy.specialtyId = selectedSpecialty.id;
+            stateCopy.name = selectedSpecialty.name;
+            stateCopy.descriptionHTML = selectedSpecialty.descriptionHTML;
+            stateCopy.descriptionMarkdown = selectedSpecialty.descriptionMarkdown;
+            stateCopy.imageBase64 = selectedSpecialty.image;
         }
 
         this.setState(stateCopy);
     }
 
     hanldeSave = async () => {
-        let { clinicId, name, address, imageBase64,
+        let { specialtyId, name, imageBase64,
             descriptionHTML, descriptionMarkdown } = this.state;
         try {
-
-            // Gọi hàm cập nhật ở đây và truyền thông tin cần thiết
-            let res = await updateClinicByIdService(clinicId, {
-                address,
+            let res = await editSpecialtyById(specialtyId, {
                 name,
                 descriptionHTML,
                 descriptionMarkdown,
@@ -157,28 +152,26 @@ class EditClinic extends Component {
 
             if (res.errCode === 0) {
                 toast.success('Cập nhật thành công!');
-                // Update the dataClinics state
-                const updatedClinics = this.state.dataClinics.map(clinic => {
-                    if (clinic.id === clinicId) {
+                // Update the dataSpecialties state
+                const updatedSpecialty = this.state.dataSpecialties.map(item => {
+                    if (item.id === specialtyId) {
                         return {
-                            ...clinic,
+                            ...item,
                             name,
-                            address,
                             descriptionHTML,
                             descriptionMarkdown,
                             image: imageBase64
                         };
                     }
-                    return clinic;
+                    return item;
                 });
                 this.setState({
-                    dataClinics: updatedClinics,
-                    address: '',
+                    dataSpecialties: updatedSpecialty,
                     name: '',
                     descriptionHTML: '',
                     descriptionMarkdown: '',
                     imageBase64: '',
-                    selectedClinic: '',
+                    selectedSpecialty: '',
                 });
             } else {
                 toast.error('Cập nhật thất bại!')
@@ -193,19 +186,19 @@ class EditClinic extends Component {
         return (
             <Container>
                 <div className="manage-specialty-container">
-                    <div className="title mb-5">Chỉnh sửa phòng khám</div>
+                    <div className="title mb-5">Chỉnh sửa chuyên khoa</div>
                     <div className="add-new-specialty row">
                         <div className="col-md-5 form-group">
                             <label className='mb-2'>Chon phong kham:</label>
                             <Select
-                                value={this.state.selectedClinic}
-                                onChange={this.hanldeOnChangeSelectdClinic}
-                                options={this.state.listClinic}
-                                placeholder={'Chọn phòng khám'}
-                                name='selectedClinic'
+                                value={this.state.selectedSpecialty}
+                                onChange={this.hanldeOnChangeSelectdSpecialty}
+                                options={this.state.listSpecialty}
+                                placeholder={'Chọn chuyên khoa'}
+                                name='selectedSpecialty'
                             />
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-5 mb-5">
                             <div className="previewImgContent">
                                 <input onChange={(e) => this.handleOnChangeImage(e)} id='previewImg' type="file" hidden />
                                 <label className='lable-upload' htmlFor="previewImg">
@@ -219,12 +212,6 @@ class EditClinic extends Component {
                                     </div>
                                 )}
                             </div>
-                        </div>
-                        <div className="col-md-5 form-group">
-                            <label htmlFor="">Địa chỉ phòng khám</label>
-                            <input type="text" className='form-control'
-                                value={this.state.address}
-                                onChange={(e) => this.handleOnChangeInput(e, 'address')} />
                         </div>
                         <div className="col-12 mt-4">
                             <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)}
@@ -264,4 +251,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(EditSpecialty);

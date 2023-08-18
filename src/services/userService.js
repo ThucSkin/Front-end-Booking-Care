@@ -96,6 +96,10 @@ const getDetailClinicById = (data) => {
     return axios.get(`api/get-detail-clinic-by-id?id=${data.id}`);
 }
 
+const getClinicById = (id) => {
+    return axios.get(`api/get-detail-clinic-by-id?id=${id}`);
+}
+
 const getAllPatient = (data) => {
     return axios.get(`api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`);
 }
@@ -112,7 +116,13 @@ const updateClinicByIdService = (clinicId, updatedData) => {
     return axios.put(`/api/update-clinic-by-id?id=${clinicId}`, updatedData);
 };
 
+const deleteSpecialtyById = (id) => {
+    return axios.delete(`/api/delete-specialty-by-id?id=${id}`);
+};
 
+const editSpecialtyById = (id, data) => {
+    return axios.put(`/api/edit-specialty-by-id?id=${id}`, data);
+};
 
 export {
     handleLoginApi,
@@ -141,6 +151,9 @@ export {
     getAllPatient,
     postSendRemedy,
     deleteClinicById,
-    updateClinicByIdService
+    updateClinicByIdService,
+    getClinicById,
+    deleteSpecialtyById,
+    editSpecialtyById
 }
 

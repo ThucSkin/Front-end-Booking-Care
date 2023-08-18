@@ -48,6 +48,8 @@
             "list-clinic": "List Clinics",
             "edit-clinic": "Edit Clinics",
             "manage-speciality": "Manage Specialties",
+            "edit-speciality": "Edit Specialties",
+            "list-speciality": "List Specialties",
             "speciality": "Specialties",
             "manage-handbook": "Manage Handbooks",
             "handbook": "Handbooks"
