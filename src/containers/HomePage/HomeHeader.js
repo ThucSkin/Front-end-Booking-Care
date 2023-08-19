@@ -26,15 +26,15 @@ class HomeHeader extends Component {
                         </div>
                         <div className="center-content">
                             <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.speciality" /></b></div>
+                                <div onClick={() => this.props.history.push(`/specialty`)}><b><FormattedMessage id="home-header.speciality" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.searchdoctor" /></div>
                             </div>
                             <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.Health facilities" /></b></div>
+                                <div onClick={() => this.props.history.push(`/clinic`)}><b><FormattedMessage id="home-header.Health facilities" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.Choose hospital clinic" /></div>
                             </div>
                             <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.Doctor" /></b></div>
+                                <div onClick={() => this.props.history.push(`/list-doctor`)}><b><FormattedMessage id="home-header.Doctor" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="home-header.choose a good doctor" /></div>
                             </div>
                             <div className="child-content">

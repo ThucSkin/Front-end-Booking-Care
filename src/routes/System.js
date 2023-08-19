@@ -11,6 +11,7 @@ import EditClinic from '../containers/System/Clinic/EditClinic';
 import ListSpecialty from '../containers/System/Specialty/ListSpecialty';
 import EditSpecialty from '../containers/System/Specialty/EditSpecialty';
 import AddSpecialty from '../containers/System/Specialty/AddSpecialty';
+import ListHomeSpecialty from '../containers/System/Specialty/ListSpecialty';
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;

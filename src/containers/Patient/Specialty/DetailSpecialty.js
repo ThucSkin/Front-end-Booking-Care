@@ -108,8 +108,6 @@ class DetailSpecialty extends Component {
     }
 
     render() {
-        console.log('check state', this.state);
-        console.log('check props', this.props);
         let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state;
         let { language } = this.props;
 

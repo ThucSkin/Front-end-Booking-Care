@@ -17,6 +17,9 @@ import VerifyEmail from './Patient/VerifyEmail';
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
 import AllDoctor from './Patient/Doctor/AllDoctor';
+import ListHomeSpecialty from './Patient/Specialty/ListHomeSpecialty';
+import ListClinic from './Patient/Clinic/ListClinic';
+import ListDoctor from './Patient/Doctor/ListDoctor';
 
 class App extends Component {
 
@@ -55,6 +58,9 @@ class App extends Component {
                                     <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                     <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
                                     <Route path={path.All_DOCTOR_INFOR} component={AllDoctor} />
+                                    <Route path={'/specialty'} component={ListHomeSpecialty} />
+                                    <Route path={'/clinic'} component={ListClinic} />
+                                    <Route path={'/list-doctor'} component={ListDoctor} />
 
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                 </Switch>
