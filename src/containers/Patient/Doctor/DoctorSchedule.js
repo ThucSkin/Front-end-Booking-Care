@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import moment from 'moment';
-import localization from 'moment/locale/vi';
 import { LANGUAGES } from '../../../utils';
 import './DoctorSchedule.scss';
 import { getScheduleByDate } from '../../../services/userService';

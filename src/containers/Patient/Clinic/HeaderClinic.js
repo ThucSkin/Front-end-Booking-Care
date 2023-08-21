@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Container } from 'react-bootstrap';
 import './HeaderClinic.scss';
 import { getClinicById } from '../../../services/userService';
 

@@ -1,21 +1,64 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './HomeHeader.scss'
+import './HomeHeader.scss';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import { changeLanguageApp } from '../../store/actions/appActions';
-import Speciality from './Section/Speciality';
 import { withRouter } from 'react-router';
+import { getAllSpecialty } from '../../services/userService';
 
 class HomeHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listSpecialties: [],
+            isSearchActive: false,
+            placeholderIndex: 0,
+        };
+    }
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language);
     }
 
+    async componentDidMount() {
+        this.fetchDataSpecialties();
+        this.placeholderInterval = setInterval(this.updatePlaceholder, 3000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.placeholderInterval);
+    }
+
+    fetchDataSpecialties = async () => {
+        let res = await getAllSpecialty();
+        if (res && res.errCode === 0) {
+            this.setState({ listSpecialties: res.data });
+        }
+    }
+
+    toggleSearchList = () => {
+        this.setState(prevState => ({ isSearchActive: !prevState.isSearchActive }));
+    }
+
+    handleRedirectSpecialty = (item) => {
+        this.props.history.push(`/detail-specialty/${item.id}`);
+    }
+
+    updatePlaceholder = () => {
+        const { listSpecialties, placeholderIndex } = this.state;
+        if (listSpecialties.length > 0) {
+            const newIndex = (placeholderIndex + 1) % listSpecialties.length;
+            this.setState({ placeholderIndex: newIndex });
+        }
+    }
+
     render() {
         let language = this.props.language;
+        const { listSpecialties, isSearchActive, placeholderIndex } = this.state;
+        const placeholderSpecialty =
+            listSpecialties.length > 0 ? listSpecialties[placeholderIndex].name : '';
+
         return (
             <>
                 <div className="home-header-container">
@@ -71,13 +114,34 @@ class HomeHeader extends Component {
                                     CHĂM SÓC SỨC KHỎE TOÀN DIỆN
                                 </div>
                                 <div className="search">
-                                    <i className='fas fa-search'></i>
-                                    <input type="text" placeholder='Tìm chuyên khoa' />
+                                    <i className="fas fa-search"></i>
+                                    <input
+                                        type="text"
+                                        placeholder={placeholderSpecialty || 'Tìm chuyên khoa'}
+                                        onFocus={this.toggleSearchList}
+                                        onBlur={this.toggleSearchList}
+                                    />
+                                    {isSearchActive === true &&
+                                        <div className="specialty-search-list">
+                                            {listSpecialties.map((item, i) => {
+                                                return (
+                                                    <div
+                                                        className="list-specialty"
+                                                        key={item.id}
+                                                        onClick={() => this.handleRedirectSpecialty(item)}
+                                                    >
+                                                        {item.name}
+                                                    </div>
+                                                )
+                                            }
+                                            )}
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             <div className="content-down">
-                                <div className="options">
-                                    <div className="options-child">
+                                <div className="options" >
+                                    <div onClick={() => this.props.history.push(`/specialty`)} className="options-child">
                                         <div className="icon-chuyen-khoa"></div>
                                         <div className="text-child">Khám chuyên khoa</div>
                                     </div>
@@ -107,7 +171,7 @@ class HomeHeader extends Component {
                                         <div className="icon-goi-phau-thuat"></div>
                                         <div className="text-child">Gói phẫu thuật</div>
                                     </div>
-                                    <div className="options-child">
+                                    <div onClick={() => this.props.history.push(`/clinic`)} className="options-child">
                                         <div className="icon-san-pham-y-te"></div>
                                         <div className="text-child">Sản phẩm y tế</div>
                                     </div>

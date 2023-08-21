@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as actions from '../../../store/actions';
 import './ListHomeSpecialty.scss';
-import { getAllSpecialty, deleteSpecialtyById } from '../../../services/userService';
-import { toast } from 'react-toastify';
+import { getAllSpecialty } from '../../../services/userService';
 import 'react-toastify/dist/ReactToastify.css';
-import { Container } from 'reactstrap';
 import { withRouter } from 'react-router';
-
+import { LANGUAGES } from '../../../utils';
+import removeDiacritics from 'remove-diacritics';
+import { FormattedMessage } from 'react-intl';
 
 class ListHomeSpecialty extends Component {
     constructor(props) {
         super(props);
         this.state = {
             specialties: [],
-        }
+            searchTerm: '',
+        };
     }
 
     async componentDidMount() {
-        this.fetchSpecialtys()
+        this.fetchSpecialties();
     }
 
-    fetchSpecialtys = async () => {
+    fetchSpecialties = async () => {
         let res = await getAllSpecialty();
         if (res.errCode === 0 && res.data) {
             this.setState({
@@ -31,21 +32,7 @@ class ListHomeSpecialty extends Component {
     }
 
     async componentDidUpdate(prevProps, prevState) {
-        this.fetchSpecialtys();
-    }
-
-    handleDeleteSpecialty = async (id) => {
-        let confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa 'Chuyên khoa' với ID '" + id + "' không?");
-
-        if (confirmDelete) {
-            try {
-                await deleteSpecialtyById(id);
-                this.fetchSpecialtys(); // Cập nhật danh sách specialties sau khi xóa
-                toast.success('Specialty deleted successfully!')
-            } catch (error) {
-                toast.error('Error deleted!')
-            }
-        }
+        this.fetchSpecialties();
     }
 
     handleRedirectDetailSpecialty = (item) => {
@@ -54,26 +41,54 @@ class ListHomeSpecialty extends Component {
         }
     }
 
+    handleSearchChange = (event) => {
+        this.setState({ searchTerm: event.target.value });
+    };
+
     render() {
-        const { specialties } = this.state;
+        const { specialties, searchTerm } = this.state;
+        const { language } = this.props;
+
+        const filteredSpecialties = specialties.filter(item => {
+            const name = removeDiacritics(item.name.toLowerCase()); // Loại bỏ dấu và chuyển thành chữ thường
+            const searchValue = removeDiacritics(searchTerm.toLowerCase()); // Loại bỏ dấu và chuyển thành chữ thường
+            return name.includes(searchValue);
+        });
 
         return (
             <div className='s-container'>
                 <div className='s-body'>
                     <div className="s-header">
-                        <i onClick={() => this.props.history.push(`/home`)} class="fas fa-arrow-left"></i> Chuyên khoa
+                        <i onClick={() => this.props.history.push(`/home`)} className="fas fa-arrow-left"></i>
+                        <FormattedMessage id={"home-header.speciality"} />
                     </div>
-                    {specialties.map((item, index) => (
-                        <div className="content" key={item.id}>
-                            <td className='i-img' onClick={() => this.handleRedirectDetailSpecialty(item)}>
-                                {item.image && (
-                                    <img className='img' src={item.image} alt={item.name} />
-                                )}
-                            </td>
-                            <td onClick={() => this.handleRedirectDetailSpecialty(item)}
-                                className='i-name'>{item.name}</td>
+                    <div className="search-specialty">
+                        <input
+                            type="text"
+                            placeholder={language === LANGUAGES.EN ? 'Search specialties' : 'Tìm kiếm chuyên khoa'}
+                            value={searchTerm}
+                            onChange={this.handleSearchChange}
+                        />
+                    </div>
+                    {filteredSpecialties.length > 0 ? (
+                        filteredSpecialties.map((item, index) => (
+                            <div className="content" key={item.id}>
+                                <div className='i-img' onClick={() => this.handleRedirectDetailSpecialty(item)}>
+                                    {item.image && (
+                                        <img className='img' src={item.image} alt={item.name} />
+                                    )}
+                                </div>
+                                <div onClick={() => this.handleRedirectDetailSpecialty(item)}
+                                    className='i-name'>{item.name}</div>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="no-result-text">
+                            {language === LANGUAGES.EN
+                                ? "No matching specialties found. Please enter more general keywords."
+                                : "Không tìm thấy chuyên khoa phù hợp. Vui lòng nhập các từ khóa chung chung hơn."}
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
         );

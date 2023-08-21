@@ -5,7 +5,6 @@ import { Modal } from 'reactstrap';
 import ProfileDoctor from '../ProfileDoctor';
 import _ from 'lodash';
 import { FormattedMessage } from 'react-intl';
-import DatePicker from '../../../../components/Input/DatePicker';
 import * as actions from '../../../../store/actions';
 import { LANGUAGES } from '../../../../utils';
 import Select from 'react-select';

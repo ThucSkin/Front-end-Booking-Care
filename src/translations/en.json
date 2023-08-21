@@ -27,7 +27,9 @@
         "confirm": "Confirm",
         "cancel": "Cancel",
         "sex": "Sex",
-        "birthday": "date"
+        "birthday": "date",
+        "province": "Province",
+        "outstanding-doctor": "Outstanding Doctor"
     },
     "detail-specialty": {
         "see-more": "See more"

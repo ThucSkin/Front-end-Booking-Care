@@ -156,6 +156,7 @@ $color: #45c3d2;
                 padding         : 10px;
                 border-radius   : 25px;
                 background-color: #f7d800;
+                position        : relative;
 
                 i {
                     padding: 10px;
@@ -167,6 +168,36 @@ $color: #45c3d2;
                     background: transparent;
                     border    : none;
                     outline   : none;
+                }
+
+                .specialty-search-list {
+                    position        : absolute;
+                    width           : 100%;
+                    top             : calc(100% + 5px);
+                    left            : 0;
+                    background-color: #fff;
+                    border          : 1px solid #ccc;
+                    border-top      : none;
+                    max-height      : 200px;
+                    overflow-y      : auto;
+                    /* Cho phép cuộn khi danh sách quá dài */
+                    z-index         : 10;
+
+                    .list-specialty {
+                        padding      : 5px;
+                        font-size    : 13px;
+                        cursor       : pointer;
+                        border-bottom: 1px solid #ccc;
+                        transition   : background-color 0.2s;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        &:hover {
+                            background-color: #f2f2f2;
+                        }
+                    }
                 }
             }
         }

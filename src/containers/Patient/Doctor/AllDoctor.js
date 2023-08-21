@@ -65,7 +65,7 @@ class AllDoctor extends Component {
     }
 
     render() {
-        let { arrDoctorId, dataDetailClinic, dataDoctors } = this.state;
+        let { arrDoctorId, dataDoctors } = this.state;
 
         return (
             <div className='detail-specialty-container'>

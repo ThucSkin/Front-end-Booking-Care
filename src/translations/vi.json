@@ -29,7 +29,9 @@
         "sex": "Giới tính",
         "birthday": "Ngày",
         "firstName": "Tên",
-        "lastName": "Họ"
+        "lastName": "Họ",
+        "province": "Tỉnh thành",
+        "outstanding-doctor": "Bác sĩ nổi bật"
     },
     "detail-specialty": {
         "see-more": "Xem thêm"

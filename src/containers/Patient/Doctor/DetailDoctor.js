@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import HomeHeader from '../../HomePage/HomeHeader';
 import './DoctorDetail.scss';
 import DoctorSchedule from './DoctorSchedule';
-import { Container } from 'react-bootstrap';
 import { getDetailInfoDoctorService } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
 import DoctorExtraInfor from './DoctorExtraInfor';
