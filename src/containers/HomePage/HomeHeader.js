@@ -41,6 +41,12 @@ class HomeHeader extends Component {
         this.setState(prevState => ({ isSearchActive: !prevState.isSearchActive }));
     }
 
+    handleInputBlur = () => {
+        setTimeout(() => {
+            this.setState({ isSearchActive: false });
+        }, 200); // Đợi 200ms trước khi đánh dấu isSearchActive là false
+    }
+
     handleRedirectSpecialty = (item) => {
         this.props.history.push(`/detail-specialty/${item.id}`);
     }
@@ -53,10 +59,11 @@ class HomeHeader extends Component {
         }
     }
 
+
     render() {
         let language = this.props.language;
-        const { listSpecialties, isSearchActive, placeholderIndex } = this.state;
-        const placeholderSpecialty =
+        let { listSpecialties, isSearchActive, placeholderIndex } = this.state;
+        let placeholderSpecialty =
             listSpecialties.length > 0 ? listSpecialties[placeholderIndex].name : '';
 
         return (
@@ -119,11 +126,11 @@ class HomeHeader extends Component {
                                         type="text"
                                         placeholder={placeholderSpecialty || 'Tìm chuyên khoa'}
                                         onFocus={this.toggleSearchList}
-                                        onBlur={this.toggleSearchList}
+                                        onBlur={this.handleInputBlur}
                                     />
-                                    {isSearchActive === true &&
-                                        <div className="specialty-search-list">
-                                            {listSpecialties.map((item, i) => {
+                                    <div className="specialty-search-list">
+                                        {isSearchActive && listSpecialties && listSpecialties.length > 0
+                                            && listSpecialties.map((item, i) => {
                                                 return (
                                                     <div
                                                         className="list-specialty"
@@ -135,8 +142,7 @@ class HomeHeader extends Component {
                                                 )
                                             }
                                             )}
-                                        </div>
-                                    }
+                                    </div>
                                 </div>
                             </div>
                             <div className="content-down">

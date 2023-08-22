@@ -4,11 +4,10 @@ import { FormattedMessage } from 'react-intl';
 import './ManageSchedule.scss';
 import Select from 'react-select';
 import * as actions from '../../../store/actions'
-import { LANGUAGES, dateFormat } from '../../../utils';
+import { LANGUAGES } from '../../../utils';
 import DatePicker from '../../../components/Input/DatePicker';
 import { toast } from 'react-toastify';
 import _ from 'lodash';
-import moment from 'moment';
 import { saveBulkScheduleDoctor } from '../../../services/userService';
 
 class ManageSchelude extends Component {
@@ -17,7 +16,7 @@ class ManageSchelude extends Component {
         this.state = {
             listDoctors: [],
             selectedOption: {},
-            currentDate: new Date(),
+            currentDate: '',
             rangeTime: [],
         }
     }
@@ -46,12 +45,6 @@ class ManageSchelude extends Component {
                 rangeTime: data
             })
         }
-        // if (prevProps.language !== this.props.language) {
-        //     let dataSelect = this.buildDataInputSelect(this.props.allDoctors)
-        //     this.setState({
-        //         listDoctors: dataSelect
-        //     })
-        // }
     }
 
     buildDataInputSelect = (data) => {
@@ -150,6 +143,7 @@ class ManageSchelude extends Component {
                                     value={this.state.selectedOption}
                                     onChange={this.handleChangeSelect}
                                     options={this.state.listDoctors}
+                                    placeholder={'Chọn bác sĩ'}
                                 />
                             </div>
                             <div className="col-6 form-group">
@@ -158,6 +152,7 @@ class ManageSchelude extends Component {
                                 </label>
                                 <DatePicker onChange={this.handleOnChangeDatePicker}
                                     className='form-control'
+                                    placeholder="Chọn ngày"
                                     value={this.state.currentDate}
                                     minDate={new Date().setHours(0, 0, 0, 0)} />
                             </div>
