@@ -123,7 +123,7 @@ class ModalRemery extends Component {
                                 </div>
                             ) : (
                                 <div>
-                                    <button className='btn-confirm' onClick={() => this.handleSendRemedy()}><FormattedMessage id={"detail-doctor.confirm"} /></button>{''}
+                                    <button className='btn-confirm' onClick={() => { this.handleSendRemedy(); this.handleReset() }}><FormattedMessage id={"detail-doctor.confirm"} /></button>{''}
                                     <button className='btn-cancel' onClick={() => { clossRemedyModal(); this.handleReset(); }}><FormattedMessage id={"detail-doctor.cancel"} /></button>
                                 </div>
                             )}

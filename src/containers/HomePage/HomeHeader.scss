@@ -128,7 +128,8 @@ $color: #45c3d2;
         flex-direction: column;
 
         .content-up {
-            height: 50%;
+            height          : 50%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
 
             .title1 {
                 text-align   : center;

@@ -219,7 +219,7 @@ class UserRedux extends Component {
         return (
             <div className="user-redux-container">
                 <div className="title">
-                    Add new user by Redux
+                    Add new user
                 </div>
                 {/* <div className="">{isLoadingGender === true ? 'loading genders' : ''}</div> */}
                 <div className="user-redux-body">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { postVerifyBookAppointment } from '../../services/userService';
 import HomeHeader from '../HomePage/HomeHeader';
+import './VerifyEmail.scss';
+import { withRouter } from 'react-router-dom';
 
 class VerifyEmail extends Component {
     constructor(props) {
@@ -36,6 +38,7 @@ class VerifyEmail extends Component {
 
     render() {
         let { statusVerify, errCode } = this.state;
+        let { language } = this.props;
 
         return (
             <>
@@ -44,12 +47,18 @@ class VerifyEmail extends Component {
                     statusVerify === false ?
                         <div className="">Loading data...</div>
                         :
-                        <div className="">
-                            {
-                                errCode === 0 ?
-                                    <div className="">Success</div>
-                                    :
-                                    <div className="">Failed</div>
+                        <div>
+                            {errCode === 0 ?
+                                <div className="message-success">
+                                    <p className='success'>Đặt lịch khám bệnh thành công.</p>
+                                    <p>Vui lòng đến khám đúng giờ để chúng tôi hỗ trợ tốt nhất cho bạn.</p>
+                                    <p>Xin cảm ơn!</p>
+                                </div>
+                                :
+                                <div className="message-fail">
+                                    <p className='fail'>Đặt lịch thất bại!</p>
+                                    <a className='home' onClick={() => this.props.history.push(`/home`)}>Quay lại trang chủ</a>
+                                </div>
                             }
                         </div>
                 }
@@ -69,4 +78,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(VerifyEmail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VerifyEmail));

@@ -150,7 +150,6 @@ class BookingModal extends Component {
             email: '',
             address: '',
             reason: '',
-            genders: '',
             selectedGender: '',
         })
     }
@@ -225,7 +224,7 @@ class BookingModal extends Component {
                             </div>
                         </div>
                         <div className="booking-modal-footer">
-                            <button className='btn-confirm' onClick={() => this.handleConfirmBooking()}><FormattedMessage id={"detail-doctor.confirm"} /></button>
+                            <button className='btn-confirm' onClick={() => { this.handleConfirmBooking(); this.handleReset(); }}><FormattedMessage id={"detail-doctor.confirm"} /></button>
                             <button className='btn-cancel' onClick={() => { closeBooking(); this.handleReset(); }}><FormattedMessage id={"detail-doctor.cancel"} /></button>
                         </div>
                     </div>

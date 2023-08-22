@@ -94,7 +94,7 @@ class HomeHeader extends Component {
                         </div>
                         <div className="right-content">
                             <div className="support">
-                                <i className='fas fa-question-circle'><FormattedMessage id="home-header.Support" /></i>
+                                <i onClick={() => this.props.history.push(`/support`)} className='fas fa-question-circle'><FormattedMessage id="home-header.Support" /></i>
                                 <p>024-7301-2468</p>
                             </div>
                             <div className={language === LANGUAGES.VI ?
@@ -110,6 +110,7 @@ class HomeHeader extends Component {
                                 </span>
                             </div>
                         </div>
+                        {/* <div className="">Dang nhap</div> */}
                     </div>
                     {this.props.isShowBanner === true &&
                         <div className="home-header-banner">

@@ -20,6 +20,7 @@ import AllDoctor from './Patient/Doctor/AllDoctor';
 import ListHomeSpecialty from './Patient/Specialty/ListHomeSpecialty';
 import ListClinic from './Patient/Clinic/ListClinic';
 import ListDoctor from './Patient/Doctor/ListDoctor';
+import Support from './Patient/Support';
 
 class App extends Component {
 
@@ -63,6 +64,7 @@ class App extends Component {
                                     <Route path={'/list-doctor'} component={ListDoctor} />
 
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
+                                    <Route path={path.SUPPORT} component={Support} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

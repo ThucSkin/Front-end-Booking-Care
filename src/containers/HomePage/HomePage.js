@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Speciality from './Section/Speciality';
@@ -11,7 +10,6 @@ import HomeFooter from './Section/HomeFooter';
 import './HomePage.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Overlay } from 'react-bootstrap';
 
 class HomePage extends Component {
 
