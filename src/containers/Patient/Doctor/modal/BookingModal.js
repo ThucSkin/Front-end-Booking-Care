@@ -143,6 +143,17 @@ class BookingModal extends Component {
             toast.error('Booking failed!');
         }
     }
+    handleReset = () => {
+        this.setState({
+            fullName: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
+            reason: '',
+            genders: '',
+            selectedGender: '',
+        })
+    }
 
     render() {
         let { isOpenModal, closeBooking, dataTime } = this.props;
@@ -199,14 +210,6 @@ class BookingModal extends Component {
                                         placeholder="Chọn giới tính"
                                     />
                                 </div>
-                                {/* <div className="col-md-6 form-group">
-                                    <label><FormattedMessage id={"detail-doctor.birthday"} /></label>
-                                    <DatePicker
-                                        onChange={this.handleOnChangeDatePicker}
-                                        className="form-control"
-                                        value={this.state.birthday}
-                                    />
-                                </div> */}
                                 <div className="col-md-12 form-group">
                                     <label><FormattedMessage id={"detail-doctor.address-user"} /></label>
                                     <input type="text" name="" id="" className='form-control'
@@ -223,7 +226,7 @@ class BookingModal extends Component {
                         </div>
                         <div className="booking-modal-footer">
                             <button className='btn-confirm' onClick={() => this.handleConfirmBooking()}><FormattedMessage id={"detail-doctor.confirm"} /></button>
-                            <button className='btn-cancel' onClick={closeBooking}><FormattedMessage id={"detail-doctor.cancel"} /></button>
+                            <button className='btn-cancel' onClick={() => { closeBooking(); this.handleReset(); }}><FormattedMessage id={"detail-doctor.cancel"} /></button>
                         </div>
                     </div>
                 </Modal>
